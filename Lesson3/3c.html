@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exercise 2b</title>
+    <title>Exercise 3c</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -12,14 +12,24 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
       function App(){
+        const [count, setCount] = React.useState(0);
+          
+        function Counter(){
+          setCount(count+1);
+        }
+
         return(
-          <>
-            <p>Hello, welcome to my website</p>
-              <button>Login</button>
-              <button>Sign up</button>
-          </>
-        )
+          <button onClick = {Counter}>
+            Clicked {
+              count === 1 || count === 0 ? 
+                count + ' time' 
+              :
+                 count + ' times'
+            }
+          </button>
+        );
       }
+      
       const container = document.querySelector('.js-container');
       ReactDOM.createRoot(container).render(<App />);
     </script>

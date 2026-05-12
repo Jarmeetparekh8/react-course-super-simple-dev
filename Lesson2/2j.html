@@ -23,23 +23,36 @@
       function ProductDetails({name, price, discountPrice, imageSrc}) {
         return(
           <>
-            <img src={"../Images/"+imageSrc} width="50"/>
-            <p>{name}</p>
+            <img 
+              src="../Images/{imageSrc}" 
+              width="50"
+            />
+            <p>
+              {name}
+            </p>
             {
               discountPrice ? (
                 <>
-                  <del><p>Price: ${price}</p></del>
-                  <p>Discount Price: ${discountPrice}</p>
+                  <del><p>
+                    Price: ${price}
+                  </p></del>
+                  <p>
+                    Discount Price: ${discountPrice}
+                  </p>
                 </>
               ) : (
                 <>
-                  <p>Price: ${price}</p>
+                  <p>
+                    Price: ${price}
+                  </p>
                 </>
               )
 
             }
             <div>
-              <button>Add to Cart</button>
+              <button>
+                Add to Cart
+              </button>
             </div>
           </>
         )

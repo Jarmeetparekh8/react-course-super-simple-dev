@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Exercise 2e</title>
-    <style>
-      .container{
-        position: fixed;
-        right: 0;
-      }
-    </style>
+    <title>Exercise 3a</title>
   </head>
   <body>
     <div class="js-container"></div>
@@ -17,19 +11,16 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
-      function App() {
+      function App(){
+        function Counter(){
+          console.log("Clicked");
+        }
         return(
-          <div className="container"> 
-            <p>Cotton socks</p>
-            <p>Price: $10.90</p>
-            <button>Add to Cart</button>
-          </div>
+          <button onClick = {Counter}>Clicked 0 times</button>
         )
       }
-
       const container = document.querySelector('.js-container');
-      const root = ReactDOM.createRoot(container);
-      root.render(<App/>)
+      ReactDOM.createRoot(container).render(<App />);
     </script>
   </body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 3h</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function Input({message, setMessage}){
+        function saveMessage(event){
+          setMessage(event.target.value);
+        }
+        function resetMessage(){
+          setMessage('');   
+        }
+        function exampleMessage(){
+          setMessage('Jarmeet')
+        }
+        return(
+          <>
+            <input 
+              onChange = {saveMessage}
+              value = {message}
+            />
+            <button onClick = {resetMessage}>Reset</button>
+            <button onClick = {exampleMessage}>Example</button>
+          </>
+        );
+      }
+      function Message({message}){
+        return(
+          <p>
+            Hello {message}
+          </p>
+        );
+      }
+      function App(){
+        const [message, setMessage] = React.useState('')
+        return(
+          <>
+            <Input
+              setMessage = {setMessage}
+              message = {message}
+            />
+            <Message 
+              message = {message}
+            />
+          </>
+        );
+      }
+      
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
