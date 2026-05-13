@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 4c</title>
+    <style>
+      .on-button{
+        background-color: rgb(25,135,84);
+        border: none;
+        padding: 12px 15px;
+        border-radius: 5px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+      .off-button{
+        background-color: rgb(220,53,69);
+        border: none;
+        padding: 12px 15px;
+        border-radius: 5px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function App(){
+        const [isButtonOn,setIsButtonOn] = React.useState(true);
+        // console.log(isButtonOn);
+
+        function onButtonClick(event){
+          if(isButtonOn === true){
+            setIsButtonOn(false);
+            event.target.className = 'off-button';
+          }
+          else{
+            setIsButtonOn(true);
+            event.target.className = 'on-button'
+          }
+        }
+        
+        return(
+          <button 
+            className="on-button"
+            onClick = {onButtonClick}
+          >
+            {
+              isButtonOn === true 
+                ? 'ON' 
+                : 'OFF'
+            }
+          </button>
+        )
+      }
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
