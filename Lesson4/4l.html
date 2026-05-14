@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 4i</title>
+    <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function App(){
+        function useAutoScroll(dependencies){
+          const componentRef = React.useRef(null);
+          React.useEffect(() => {
+          const containerElem = componentRef.current;
+          if(containerElem){
+            containerElem.scrollTop = containerElem.scrollHeight;
+          }
+        }, [dependencies]);
+          return componentRef;
+        }
+        return(
+        <>
+        </>
+        );
+      }
+      
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
