@@ -26,3 +26,4 @@ export function ChatMessage({message, sender}){
     </div>
   );
 }
+console.log(UserProfileImage);

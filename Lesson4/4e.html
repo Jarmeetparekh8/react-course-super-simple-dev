@@ -37,19 +37,9 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script type="text/babel">
       function App(){
-        const inputPasswordRef = React.useRef(null);
         const [showPassword, setShowPassword] = React.useState(false);
-        function showPasswordClick(event){
-          if(showPassword === false){
-            setShowPassword(true);
-            inputPasswordRef.current.type = "text";
-            event.target.innerText = "Hide";
-          }
-          else{
-            setShowPassword(false);
-            inputPasswordRef.current.type = "password";
-            event.target.innerText = "Show";
-          }
+        function passwordVisibility(){
+          setShowPassword((prev) => (!prev));
         }
         return(
           <>
@@ -61,12 +51,16 @@
             </div>
             <div>
               <input 
-                type="password" 
+                type= {showPassword ? "text" : "password"}
                 placeholder="Password" 
                 className = "input-password"
-                ref = {inputPasswordRef}
               />
-              <button className="password-show-button" onClick={showPasswordClick}>Show</button>
+              <button 
+                className="password-show-button" 
+                onClick={passwordVisibility}
+              >
+                Show
+              </button>
             </div>
             <button className = "login-button">Login</button>
             <button className = "signup-button">Sign up</button>

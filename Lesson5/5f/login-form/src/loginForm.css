@@ -1,0 +1,17 @@
+.input-email, .input-password{
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border-width: 1px;
+}
+.input-password{
+  margin-right: 5px;
+}
+.login-button, .signup-button{
+  background-color: rgb(26, 122, 248);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 10px;
+  margin-right: 5px;
+}
